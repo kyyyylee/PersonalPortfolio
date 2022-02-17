@@ -21,11 +21,12 @@ body{
 #navbar {
   display: flex;
   justify-content: flex-end;
-  background-color: #352142;
+  background-color: #652545;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  border-bottom: solid white;
 }
 
 .navlist {
@@ -35,12 +36,12 @@ body{
 
 .navlist a {
   display: block;
-  color: var(--main-white);
+  color: white;
   padding: 1rem;
 }
 
 .navlist a:hover {
-  background: var(--main-blue);
+  background: black;
 }
 
 a {
@@ -49,10 +50,16 @@ a {
 
 #welcome-section {
   height: 100vh;
-  background-color: bisque;
+  background-color: #CCA49D;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#projects{
+  background-color: #993A29;
+}
+#projects figcaption{
+  color: white;
 }
 
 h1 {
