@@ -55,6 +55,10 @@ a {
   justify-content: center;
   align-items: center;
 }
+#welcome-section h1 {
+  font-size: 5rem;
+}
+
 #projects{
   background-color: #993A29;
 }
@@ -62,9 +66,7 @@ a {
   color: white;
 }
 
-h1 {
-  font-size: 5rem;
-}
+
 
 /* 980px / 16px = 61.25em */
 @media (max-width: 61.25em) {
