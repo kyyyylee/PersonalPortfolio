@@ -12,7 +12,12 @@ html {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
-
+body{
+  font-family: 'Raleway', sans-serif;
+  font-size:1.8rem ;
+  font-weight: 400;
+  color: white;
+}
 #navbar {
   display: flex;
   justify-content: flex-end;
