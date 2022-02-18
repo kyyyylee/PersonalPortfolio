@@ -80,7 +80,7 @@ a {
   text-align: center;
 }
 #projects a:hover{
-    background-color: rgba(0, 0, 0, .5);
+    background-color:var(--main-brown);
     position:relative;
     top: -1.5rem;
 }
