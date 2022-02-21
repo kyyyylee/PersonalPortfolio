@@ -78,6 +78,7 @@ a {
 #projects figcaption{
   color: white;
   text-align: center;
+  max-width: 30rem;
 }
 #projects a:hover{
     background-color:var(--main-brown);
@@ -86,9 +87,29 @@ a {
 }
 #contact{
   background-color:var(--main-tan);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-
+#contact h1{
+  padding: 2rem;
+}
+.contact-links{
+  display: flex;
+}
+.contact-links a{
+ padding: 2rem;
+ font-size: xx-large;
+ color: #594839;
+}
+.contact-links a:hover{
+  color: #4E8DA6;
+}
+footer{
+  background-color: #4E8DA6;
+  text-align: center;
+  padding: 2rem;
+}
 
 /* 980px / 16px = 61.25em */
 @media (max-width: 61.25em) {
