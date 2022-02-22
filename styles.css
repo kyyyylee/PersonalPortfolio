@@ -73,15 +73,16 @@ a {
   margin: 2rem;
 }
 .project-tile img{
-  width: 30rem;
+  width: 20rem;
 }
 #projects figcaption{
   color: white;
   text-align: center;
-  max-width: 30rem;
+  max-width: 20rem;
+  font-size: large;
 }
-#projects a:hover{
-    background-color:var(--main-brown);
+#projects a:hover figcaption{
+    background-color:var(--main-blue);
     position:relative;
     top: -1.5rem;
 }
@@ -100,13 +101,13 @@ a {
 .contact-links a{
  padding: 2rem;
  font-size: xx-large;
- color: #594839;
+ color: var(--main-brown);
 }
 .contact-links a:hover{
-  color: #4E8DA6;
+  color: var(--main-blue);
 }
 footer{
-  background-color: #4E8DA6;
+  background-color:var(--main-tan);
   text-align: center;
   padding: 2rem;
 }
@@ -122,6 +123,5 @@ footer{
 @media (max-width: 40em) {
   html {
     font-size: 50%;
-    color: red;
   }
 }
