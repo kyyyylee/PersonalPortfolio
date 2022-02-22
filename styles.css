@@ -44,16 +44,25 @@ body{
 }
 a {
   text-decoration: none;
+  color: var(--main-brown);
 }
 #welcome-section {
   height: 100vh;
   background-color: var(--main-blue);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 #welcome-section h1 {
   font-size: 5rem;
+}
+#welcome-section h2{
+  color: var(--main-tan);
+}
+#welcome-section a:hover{
+  color: var(--main-dark);
 }
 #projects{
   background-color: var(--main-dark);
