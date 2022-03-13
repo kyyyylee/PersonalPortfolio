@@ -58,7 +58,7 @@ myCar.numDoors = 4; // can also use dot notation to add a property to an object 
 
 
 const anotherObject = {
-    wordz = ['foo', 'bar', 'baz'],
+   // wordz = ['foo', 'bar', 'baz'],
     car: {
         //defining an object within an object
         make:'Toyota',
