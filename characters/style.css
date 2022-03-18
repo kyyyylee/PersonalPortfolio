@@ -2,6 +2,9 @@ main{
     display: flex;
     flex-wrap: wrap;
 }
+figure{
+    margin: 0.5rem 1rem;
+}
 figure img{
     height: 20rem;
 }
