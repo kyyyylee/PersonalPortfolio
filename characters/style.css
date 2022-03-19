@@ -1,10 +1,40 @@
-main{
-    display: flex;
-    flex-wrap: wrap;
+* {
+  font-family: "Titillium Web", sans-serif;
+  background-color: black;
+  color: #e89e10;
 }
-figure{
-    margin: 0.5rem 1rem;
+header {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  flex-wrap: wrap;
 }
-figure img{
-    height: 20rem;
+header button {
+  background-color: #2f67f8;
+  border: none;
+  color: white;
+  padding: 0.5rem 2rem;
+  text-align: center;
+  font-size: 16px;
+  margin: 1rem 2rem;
+  border-radius: 4px;
+}
+header button:hover {
+  background-color: #eb212d;
+  transition-duration: 0.4s;
+}
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+figure {
+  margin: 0.5rem 1rem;
+}
+figure img {
+  height: 20rem;
+  border-radius: 0.5rem;
+}
+figcaption {
+  text-align: center;
 }
