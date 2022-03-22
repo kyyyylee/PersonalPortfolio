@@ -82,12 +82,12 @@ a {
   margin: 2rem;
 }
 .project-tile img{
-  width: 20rem;
+  width: 18rem;
 }
 #projects figcaption{
   color: white;
   text-align: center;
-  max-width: 20rem;
+  max-width: 18rem;
   font-size: large;
 }
 #projects a:hover figcaption{
