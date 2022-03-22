@@ -22,9 +22,7 @@ femaleCharsButton.addEventListener("click", () =>
   populateDOM(femaleCharacters)
 );
 
-const otherCharacters = people.filter(
-  (person) => person.gender != "male" && person.gender != "female"
-);
+const otherCharacters = people.filter((person) =>person.gender !== "male" && person.gender !== "female");
 const otherCharsButton = document.createElement("button");
 otherCharsButton.textContent = "Other Characters";
 otherCharsButton.addEventListener("click", () => populateDOM(otherCharacters));
@@ -49,4 +47,4 @@ function populateDOM(characters) {
     main.appendChild(personFig);
   });
 }
-populateDOM(people);
+populateDOM(people)
