@@ -83,6 +83,7 @@ a {
 }
 .project-tile img{
   width: 18rem;
+  border-radius: 0.5rem;
 }
 #projects figcaption{
   color: white;
@@ -92,8 +93,7 @@ a {
 }
 #projects a:hover figcaption{
     background-color:var(--main-blue);
-    position:relative;
-    top: -1.5rem;
+    border-radius: 0.5rem;
 }
 #contact{
   background-color:var(--main-tan);
