@@ -76,3 +76,13 @@ function myFunction() {
 function sumTwoThings(thing1, thing2){
     return thing1 + thing2;
 }
+pilots = [
+    {
+        faction:"Rebels"
+    },
+    {
+        faction:"Empire"
+    }
+
+]
+const rebels = pilots.filter(pilot=>pilots.faction=="Rebels")
