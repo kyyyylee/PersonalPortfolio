@@ -86,3 +86,5 @@ pilots = [
 
 ]
 const rebels = pilots.filter(pilot=>pilots.faction=="Rebels")
+
+//map returns a new array like filter
