@@ -4,8 +4,8 @@ import { removeChildren, getLastNumber } from "../utils/index.js";
 const nav = document.querySelector(".nav");
 const navList = document.querySelector(".navList");
 const shipViewer = document.querySelector(".shipViewer");
-
 const shipMessage = document.querySelector(".modal p");
+
 // Get the modal
 var modal = document.getElementById("myModal");
 // Get the <span> element that closes the modal
@@ -29,6 +29,7 @@ function populateNav() {
     anchor.href = "#!";
     anchor.textContent = starship.name;
     anchor.addEventListener("click", () => populateShipView(starship));
+    listItem.addEventListener("click", () => populateShipView(starship));
   
     listItem.appendChild(anchor);
     navList.appendChild(listItem);

@@ -27,9 +27,14 @@ a {
   text-decoration: none;
   color: white;
 }
-a:hover {
+li:hover > a {
   background-color: #e89e10;
   color: black;
+}
+li:hover{
+  background-color: #e89e10;
+  color: black;
+  cursor: pointer;
 }
 .modal {
   display: none; /* Hidden by default */
