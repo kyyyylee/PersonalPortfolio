@@ -40,7 +40,7 @@ populateNav();
 
 function populateShipView(shipData) {
   removeChildren(shipViewer);
-
+  
   const shipImage = document.createElement("img");
   let shipNum = getLastNumber(shipData.url);
   shipImage.src = `https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg`;
