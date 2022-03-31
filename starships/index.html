@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  <link href="styles.css" rel="stylesheet">
-  <title>Star Wars Starships</title>
-</head>
-<body>
-  <header>
-    <p>Starships of Star Wars</p>
-  </header>
-  <main class="mainContainer">
-    <nav class="nav">
-      <ul class="navList"></ul>
-    </nav>
-    <section class="shipViewer"></section>
-  </main>
-
-<!-- This is the html from Bulma for a modal component -->
-<div class="modal">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-    <div class="box">
-      <p></p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap" rel="stylesheet"/>
+    <link href="styles.css" rel="stylesheet" />
+    <title>Star Wars Starships</title>
+  </head>
+  <body>
+    <header>
+      <h1>Starships of Star Wars</h1>
+    </header>
+    <main class="mainContainer">
+      <nav class="nav">
+        <ul class="navList"></ul>
+      </nav>
+      <section class="shipViewer"></section>
+    </main>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p></p>
+      </div>
     </div>
-  </div>
-  <button class="modal-close is-large" aria-label="close"></button>
-</div>
-
-
-  <footer>
-    <p>&copy; Thor Anderson Designs 2022</p>
-  </footer>
-  <script src="sw-starships.js" type="module"></script>
-</body>
+    <footer>
+      <p>&copy; Kylee Harward Designs 2022</p>
+    </footer>
+    <script src="sw-starships.js" type="module"></script>
+  </body>
 </html>
