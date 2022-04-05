@@ -41,8 +41,8 @@ li:hover {
   top: 25%;
   left: 40%;
 }
-.shipviewer img {
-  max-width: 30vw;
+img {
+  max-width: 40vw;
 }
 .modal {
   display: none; /* Hidden by default */
