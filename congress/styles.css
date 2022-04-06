@@ -2,8 +2,37 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    background-color:  #002868;
+    color: white;
+}
+header {
+    display: flex;
+}
+main{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
 }
 .senatorsDiv{
+    height: fit-content;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    max-width: 50%;
 }
+.representativesDiv{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 50%;
+}
+img{
+    max-width: 8rem;
+}
+figure{
+    padding: 0.5rem;
+}
+figcaption{
+    text-align: center;
+}
+
