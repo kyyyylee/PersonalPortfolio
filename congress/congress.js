@@ -1,59 +1,69 @@
 import { senators } from '../data/senators.js'
+import { representatives } from '../data/representatives.js'
 
 const senatorsDiv = document.querySelector('.senatorsDiv')
-const seniorityHeader = document.querySelector('.seniority')
-const loyaltyList = document.querySelector('.loyaltyList')
+const representativesDiv = document.querySelector('.representativesDiv')
 
 function simplifiedSenators() {
-  return senators.map(senator => {
-    const middleName = senator.middle_name ? ` ${senator.middle_name} ` : ` `
+  return senators.map(sen => {
+    const middleName = sen.middle_name ? ` ${sen.middle_name} ` : ` `
     return {
-      id: senator.id,
-      name: `${senator.first_name}${middleName}${senator.last_name}`,
-      gender: senator.gender,
-      party: senator.party,
-      imgURL: `https://www.govtrack.us/static/legislator-photos/${senator.govtrack_id}-200px.jpeg`,
-      seniority: +senator.seniority,
-      state: senator.state,
-      missedVotesPct: senator.missed_votes_pct,
-      loyaltyPct: senator.votes_with_party_pct
+      id: sen.id,
+      name: `${sen.first_name}${middleName}${sen.last_name}`,
+      gender: sen.gender,
+      party: sen.party,
+      imgURL: `https://www.govtrack.us/static/legislator-photos/${sen.govtrack_id}-200px.jpeg`,
+      seniority: +sen.seniority,
+      state: sen.state,
+      missedVotesPct: sen.missed_votes_pct,
+      loyaltyPct: sen.votes_with_party_pct
     }
   })
 }
-
-function populateSenatorDiv(senatorsArray) {
-  senatorsArray.forEach(senator => {
+function simplifiedRepresentatives() {
+  return representatives.map(rep => {
+    const middleName = rep.middle_name ? ` ${rep.middle_name} ` : ` `
+    return {
+      id: rep.id,
+      name: `${rep.first_name}${middleName}${rep.last_name}`,
+      gender: rep.gender,
+      party: rep.party,
+      imgURL: `https://www.govtrack.us/static/legislator-photos/${rep.govtrack_id}-200px.jpeg`,
+      seniority: +rep.seniority,
+      state: rep.state,
+      missedVotesPct: rep.missed_votes_pct,
+      loyaltyPct: rep.votes_with_party_pct
+    }
+  })
+}
+function populateSenatorsDiv(senatorsArray) {
+  senatorsArray.forEach(sen => {
     const senFigure = document.createElement('figure')
-    const figImg = document.createElement('img')
-    const figCaption = document.createElement('figcaption')
+    const senImg = document.createElement('img')
+    const senCaption = document.createElement('figcaption')
 
-    figImg.src = senator.imgURL
-    figCaption.textContent = senator.name
+    senImg.src = sen.imgURL
+    senCaption.textContent = sen.name
 
-    senFigure.appendChild(figImg)
-    senFigure.appendChild(figCaption)
+    senFigure.appendChild(senImg)
+    senFigure.appendChild(senCaption)
     senatorsDiv.appendChild(senFigure)
   })
 }
+function populateRepresentativesDiv(representativesArray) {
+  representativesArray.forEach(rep => {
+    const repFigure = document.createElement('figure')
+    const repImg = document.createElement('img')
+    const repCaption = document.createElement('figcaption')
 
-populateSenatorDiv(simplifiedSenators())
+    repImg.src = rep.imgURL
+    repCaption.textContent = rep.name
 
-const mostSeniorMember = simplifiedSenators().reduce((acc, senator) => acc.seniority > senator.seniority ? acc : senator)
+    repFigure.appendChild(repImg)
+    repFigure.appendChild(repCaption)
+    representativesDiv.appendChild(repFigure)
+  })
+}
 
-const biggestMissedVotesPct = simplifiedSenators().reduce((acc, senator) => acc.missedVotesPct > senator.missedVotesPct ? acc : senator)
-
-// console.log(biggestMissedVotesPct.missedVotesPct)
-
-const biggestVacationerList = simplifiedSenators().filter(senator => senator.missedVotesPct === biggestMissedVotesPct.missedVotesPct)
-
-console.log(biggestVacationerList)
-
-seniorityHeader.textContent = `The most senior Senator is ${mostSeniorMember.name} and the biggest fans of vacations are TBD...`
-
-simplifiedSenators().forEach(senator => {
-  if(senator.loyaltyPct === 100) {
-    let listItem = document.createElement('li')
-    listItem.textContent = senator.name
-    loyaltyList.appendChild(listItem)
-  }
-})
+populateSenatorsDiv(simplifiedSenators())
+populateRepresentativesDiv(simplifiedRepresentatives())
