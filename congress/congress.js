@@ -8,6 +8,7 @@ const congressDiv = document.querySelector('.congressDiv')
 const header = document.querySelector("header");
 const congressHog = document.querySelector('.congressHog')
 const allMembers = [...senators, ...representatives]
+const buttonSection = document.querySelector('.buttons')
 
 //populateDom function 
 function populateDom(members) {
@@ -48,26 +49,26 @@ senButton.textContent = "Senators";
 senButton.addEventListener("click", function () {
   populateDom(simplifiedMembers(senators))
 });
-header.appendChild(senButton);
+buttonSection.appendChild(senButton);
 //representatives button
 const repButton = document.createElement("button");
 repButton.textContent = "Representatives";
 repButton.addEventListener("click", function () {
   populateDom(simplifiedMembers(representatives))
 });
-header.appendChild(repButton);
+buttonSection.appendChild(repButton);
 //FILTER FUNCTION republican button
 const republicanMembers = allMembers.filter((republican) => republican.party == "R");
 const republicanButton = document.createElement("button");
 republicanButton.textContent = "Republican Members";
 republicanButton.addEventListener("click", () => populateDom(simplifiedMembers(republicanMembers)));
-header.appendChild(republicanButton);
+buttonSection.appendChild(republicanButton);
 //FILTER FUNCTION democrat button
 const democraticMembers = allMembers.filter((democrat) => democrat.party == "D");
 const democratButton = document.createElement("button");
 democratButton.textContent = "Democrat Members";
 democratButton.addEventListener("click", () => populateDom(simplifiedMembers(democraticMembers)));
-header.appendChild(democratButton);
+buttonSection.appendChild(democratButton);
 //REDUCE FUNCTION most senior member
 const mostSeniorMember = simplifiedMembers(allMembers).reduce((acc, member) => acc.seniority > member.seniority ? acc : member)
 console.log(mostSeniorMember.name)

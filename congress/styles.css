@@ -2,18 +2,42 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: #EBE0CE;
 }
 header {
-   height: 10rem;
+   height: 15rem;
    background-color:#EBE0CE;
 }
 header h1{
     text-align: center;
     color: #72260F;
+    padding: 1rem;
 }
+.congressHog{
+    text-align: center;
+    padding: 1rem;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+header button {
+    background-color: #191C2F;
+    border: none;
+    color: #EBE0CE;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    font-size: 16px;
+    margin: 1rem 2rem;
+    border-radius: 4px;
+  }
+  header button:hover {
+    background-color: #72260F;
+    transition-duration: 0.4s;
+  }
 main{
     background-color:  #191C2F;
+    color: #EBE0CE;
+
 }
 main div{
     height: fit-content;
@@ -22,7 +46,7 @@ main div{
     justify-content: center;
 }
 img{
-    max-width: 8rem;
+    max-width: 10rem;
 }
 figure{
     padding: 0.5rem;
@@ -30,11 +54,12 @@ figure{
 figcaption{
     text-align: center;
     font-size: small;
-    max-width: 8rem ;
+    max-width: 10rem ;
 }
 footer{
     background-color: #72260F;
     text-align: center;
     padding: 2rem;
+    color: #EBE0CE;
 }
 
