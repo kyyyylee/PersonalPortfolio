@@ -2,29 +2,24 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color:  #002868;
-    color: white;
+    color: #EBE0CE;
 }
 header {
-    display: flex;
+   height: 10rem;
+   background-color:#EBE0CE;
+}
+header h1{
+    text-align: center;
+    color: #72260F;
 }
 main{
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
+    background-color:  #191C2F;
 }
-.senatorsDiv{
+main div{
     height: fit-content;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    max-width: 50%;
-}
-.representativesDiv{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 50%;
 }
 img{
     max-width: 8rem;
@@ -34,5 +29,12 @@ figure{
 }
 figcaption{
     text-align: center;
+    font-size: small;
+    max-width: 8rem ;
+}
+footer{
+    background-color: #72260F;
+    text-align: center;
+    padding: 2rem;
 }
 
