@@ -4,87 +4,73 @@ import { representatives } from '../data/representatives.js'
 import { removeChildren } from '../utils/index.js';
 
 //declaring variables for document
-const main = document.querySelector("main");
 const congressDiv = document.querySelector('.congressDiv')
 const header = document.querySelector("header");
+const congressHog = document.querySelector('.congressHog')
+const allMembers = [...senators, ...representatives]
 
-//senators all function
-function simplifiedSenators() {
-  return senators.map(sen => {
-    const middleName = sen.middle_name ? ` ${sen.middle_name} ` : ` `
-    return {
-      id: sen.id,
-      name: `${sen.first_name}${middleName}${sen.last_name}`,
-      gender: sen.gender,
-      party: sen.party,
-      imgURL: `https://www.govtrack.us/static/legislator-photos/${sen.govtrack_id}-200px.jpeg`,
-      seniority: +sen.seniority,
-      state: sen.state,
-      missedVotesPct: sen.missed_votes_pct,
-      loyaltyPct: sen.votes_with_party_pct
-    }
+//populateDom function 
+function populateDom(members) {
+  removeChildren(congressDiv)
+  members.forEach(member => {
+    const memberFigure = document.createElement('figure')
+    const memberImg = document.createElement('img')
+    const memberCaption = document.createElement('figcaption')
+
+    memberImg.src = member.imgURL
+    memberCaption.textContent = member.name
+
+    memberFigure.appendChild(memberImg)
+    memberFigure.appendChild(memberCaption)
+    congressDiv.appendChild(memberFigure)
   })
 }
-function populateSenatorsDiv(senatorsArray) {
-  removeChildren(congressDiv)
-  senatorsArray.forEach(sen => {
-    const senFigure = document.createElement('figure')
-    const senImg = document.createElement('img')
-    const senCaption = document.createElement('figcaption')
-    senImg.src = sen.imgURL
-    senCaption.textContent = sen.name
-    senFigure.appendChild(senImg)
-    senFigure.appendChild(senCaption)
-    congressDiv.appendChild(senFigure)
+//MAP FUNCTION simple array
+function simplifiedMembers(members) {
+  return members.map(member => {
+    const middleName = member.middle_name ? ` ${member.middle_name} ` : ` `
+    return {
+      id: member.id,
+      name: `${member.first_name}${middleName}${member.last_name}`,
+      gender: member.gender,
+      party: member.party,
+      imgURL: `https://www.govtrack.us/static/legislator-photos/${member.govtrack_id}-200px.jpeg`,
+      seniority: +member.seniority,
+      state: member.state,
+      missedVotesPct: member.missed_votes_pct,
+      loyaltyPct: member.votes_with_party_pct
+    }
   })
 }
 //senator button
 const senButton = document.createElement("button");
 senButton.textContent = "Senators";
 senButton.addEventListener("click", function () {
-  populateSenatorsDiv(simplifiedSenators())
+  populateDom(simplifiedMembers(senators))
 });
 header.appendChild(senButton);
-
-//representatives function 
-
-function populateRepresentativesDiv(representativesArray) {
-  removeChildren(congressDiv)
-  representativesArray.forEach(rep => {
-    const repFigure = document.createElement('figure')
-    const repImg = document.createElement('img')
-    const repCaption = document.createElement('figcaption')
-
-    repImg.src = rep.imgURL
-    repCaption.textContent = rep.name
-
-    repFigure.appendChild(repImg)
-    repFigure.appendChild(repCaption)
-    congressDiv.appendChild(repFigure)
-  })
-}
-function simplifiedRepresentatives() {
-  return representatives.map(rep => {
-    const middleName = rep.middle_name ? ` ${rep.middle_name} ` : ` `
-    return {
-      id: rep.id,
-      name: `${rep.first_name}${middleName}${rep.last_name}`,
-      gender: rep.gender,
-      party: rep.party,
-      imgURL: `https://www.govtrack.us/static/legislator-photos/${rep.govtrack_id}-200px.jpeg`,
-      seniority: +rep.seniority,
-      state: rep.state,
-      missedVotesPct: rep.missed_votes_pct,
-      loyaltyPct: rep.votes_with_party_pct
-    }
-  })
-}
-
 //representatives button
 const repButton = document.createElement("button");
 repButton.textContent = "Representatives";
 repButton.addEventListener("click", function () {
-  populateRepresentativesDiv(simplifiedRepresentatives())
+  populateDom(simplifiedMembers(representatives))
 });
 header.appendChild(repButton);
-
+//FILTER FUNCTION republican button
+const republicanMembers = allMembers.filter((republican) => republican.party == "R");
+const republicanButton = document.createElement("button");
+republicanButton.textContent = "Republican Members";
+republicanButton.addEventListener("click", () => populateDom(simplifiedMembers(republicanMembers)));
+header.appendChild(republicanButton);
+//FILTER FUNCTION democrat button
+const democraticMembers = allMembers.filter((democrat) => democrat.party == "D");
+const democratButton = document.createElement("button");
+democratButton.textContent = "Democrat Members";
+democratButton.addEventListener("click", () => populateDom(simplifiedMembers(democraticMembers)));
+header.appendChild(democratButton);
+//REDUCE FUNCTION most senior member
+const mostSeniorMember = simplifiedMembers(allMembers).reduce((acc, member) => acc.seniority > member.seniority ? acc : member)
+console.log(mostSeniorMember.name)
+congressHog.textContent=`The most senior member of congress is ${mostSeniorMember.name} who has been enjoying our tax dollars for ${mostSeniorMember.seniority} years!`
+//all members loaded when page opens
+populateDom(simplifiedMembers(allMembers))
