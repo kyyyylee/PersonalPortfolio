@@ -4,7 +4,7 @@
     padding: 0;
 }
 header {
-   height: 15rem;
+   height: 25%;
    background-color:#EBE0CE;
 }
 header h1{
@@ -18,7 +18,9 @@ header h1{
 }
 .buttons{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    padding-bottom: 1rem;
 }
 header button {
     background-color: #191C2F;
@@ -38,6 +40,9 @@ main{
     background-color:  #191C2F;
     color: #EBE0CE;
 
+}
+.scene{
+    background-color: orange;
 }
 main div{
     height: fit-content;

@@ -5,7 +5,6 @@ import { removeChildren } from '../utils/index.js';
 
 //declaring variables for document
 const congressDiv = document.querySelector('.congressDiv')
-const header = document.querySelector("header");
 const congressHog = document.querySelector('.congressHog')
 const allMembers = [...senators, ...representatives]
 const buttonSection = document.querySelector('.buttons')
@@ -46,7 +45,7 @@ function simplifiedMembers(members) {
 //senator button
 const senButton = document.createElement("button");
 senButton.textContent = "Senators";
-senButton.addEventListener("click", function () {
+senButton.addEventListener("click",function () {
   populateDom(simplifiedMembers(senators))
 });
 buttonSection.appendChild(senButton);
