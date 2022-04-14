@@ -7,7 +7,26 @@ const getAPIData = async (url) => {
   }
 }
 
+const pokeHeader=document.querySelector('header')
+const newButton=document.createElement('button')
+newButton.textContent='New Pokemon'
+pokeHeader.appendChild(newButton)
+newButton.addEventListener('click', () =>{
+})
+
 const pokeGrid = document.querySelector('.pokegrid')
+
+class Pokemon {
+  constructor(name, height, weight, abilities, types){
+    this.name = name,
+    this.height = height,
+    this.weight = weight,
+    this.abilities = abilities,
+    this.types = types
+  }
+}
+
+const newPokemon = new Pokemon ()
 
 async function loadPokemon(offset = 0, limit = 25) {
   const data = await getAPIData(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`)
