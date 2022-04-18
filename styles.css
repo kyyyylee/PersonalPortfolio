@@ -72,6 +72,7 @@ a {
 }
 #projects h1{
   margin: 2rem;
+  text-align: center;
 }
 .all-projects{
   display: flex;
@@ -91,9 +92,9 @@ a {
   max-width: 18rem;
   font-size: large;
 }
-#projects a:hover figcaption{
-    background-color:var(--main-blue);
-    border-radius: 0.5rem;
+#projects a:hover figcaption {
+  background-color: var(--main-blue);
+  border-radius: 0.5rem;
 }
 #contact{
   background-color:var(--main-tan);
@@ -106,6 +107,8 @@ a {
 }
 .contact-links{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .contact-links a{
  padding: 2rem;
