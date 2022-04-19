@@ -7,6 +7,13 @@
     display: flex;
     justify-content: center;
     padding: 3rem;
+    margin-bottom: 1rem;
+    background-color: lightcoral;
+  }
+  button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .pokegrid {
     display: flex;
@@ -48,6 +55,7 @@
     width: 200px;
   }
   footer{
+    margin-top: 1rem;
     padding: 2rem;
     text-align: center;
     background-color: lightcoral;
