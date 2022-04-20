@@ -25,6 +25,7 @@ body{
   justify-content: flex-end;
   background-color: var(--main-brown);
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 100%;
@@ -95,6 +96,14 @@ a {
 #projects a:hover figcaption {
   background-color: var(--main-blue);
   border-radius: 0.5rem;
+}
+.static {
+  position:absolute;
+  background: white;
+  z-index: 0;
+}
+.static:hover {
+  opacity:0;
 }
 #contact{
   background-color:var(--main-tan);
