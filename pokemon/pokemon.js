@@ -1,3 +1,5 @@
+import { removeChildren } from "../utils/index.js";
+
 //getting api data
 const getAPIData = async (url) => {
   try {
@@ -20,6 +22,20 @@ class Pokemon {
       (this.types = types);
   }
 }
+//load pokemon button
+const loadPokemonButton = document.createElement("button");
+loadPokemonButton.textContent = "Load Pokemon";
+pokeHeader.appendChild(loadPokemonButton);
+loadPokemonButton.addEventListener("click", () => {
+  const pokeNumber = prompt("How many pokemon (total) would you like to load?");
+  removeChildren(pokeGrid);
+  if (pokeNumber === null) {
+    //if they dont answer the promt just load with default (25) pokemons
+    loadPokemon(0, 25);
+  } else {
+    loadPokemon(0, pokeNumber);
+  }
+});
 //new button
 const newButton = document.createElement("button");
 newButton.textContent = "New Pokemon";
@@ -34,7 +50,6 @@ newButton.addEventListener("click", () => {
   const pokeTypes = prompt(
     "What are your Pokemon's types? (up to 2 types separated by a space)"
   );
-
   const newPokemon = new Pokemon(
     pokeName,
     pokeHeight,
@@ -93,9 +108,9 @@ function populatePokeCard(pokemon) {
 function populateCardFront(pokemon) {
   const pokeFront = document.createElement("figure");
   pokeFront.className = "cardFace front";
-  const pokeType = pokemon.types[0].type.name
-  pokeFront.style.setProperty('background' , getPokeTypeColor(pokeType))
-  console.log(pokeType)
+  //basing color on pokemon type
+  let pokeType1 = pokemon.types[0].type.name;
+  pokeFront.style.setProperty("background", getPokeTypeColor(pokeType1));
   const pokeImg = document.createElement("img");
   if (pokemon.id === 9001) {
     pokeImg.src = "../images/pokeball.png";
@@ -112,9 +127,18 @@ function populateCardFront(pokemon) {
 function populateCardBack(pokemon) {
   const pokeBack = document.createElement("div");
   pokeBack.className = "cardFace back";
-  const label = document.createElement("h4");
-  label.textContent = "Abilities";
-  pokeBack.appendChild(label);
+  //if they have a second type, set the back color to that
+  let pokeType1 = pokemon.types[0].type.name;
+  let pokeType2 = pokemon.types[1]?.type.name;
+  if (!pokeType2) {
+    pokeBack.style.setProperty("background", getPokeTypeColor(pokeType1));
+  } else {
+    pokeBack.style.setProperty("background", getPokeTypeColor(pokeType2));
+  }
+  //abilities list
+  const abilityLabel = document.createElement("h4");
+  abilityLabel.textContent = "Abilities";
+  pokeBack.appendChild(abilityLabel);
   const abilityList = document.createElement("ul");
   pokemon.abilities.forEach((abilityItem) => {
     const listItem = document.createElement("li");
@@ -122,6 +146,27 @@ function populateCardBack(pokemon) {
     abilityList.appendChild(listItem);
   });
   pokeBack.appendChild(abilityList);
+  //type(s)list
+  const typeLabel = document.createElement("h4");
+  typeLabel.textContent = "Type(s)";
+  pokeBack.appendChild(typeLabel);
+  const typeList = document.createElement("ul");
+  pokemon.types.forEach((typeItem) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = typeItem.type.name;
+    typeList.appendChild(listItem);
+  });
+  pokeBack.appendChild(typeList);
+  //height and weight
+
+  const heightLabel = document.createElement("h5");
+  heightLabel.textContent = `Height:${pokemon.height}`;
+  pokeBack.appendChild(heightLabel);
+
+  const weightLabel = document.createElement("h5");
+  weightLabel.textContent = `Weight:${pokemon.weight}`;
+  pokeBack.appendChild(weightLabel);
+
   return pokeBack;
 }
 function getPokeTypeColor(pokeType) {
@@ -188,5 +233,4 @@ function getPokeTypeColor(pokeType) {
   }
   return color;
 }
-
-await loadPokemon(0, 50);
+await loadPokemon(0, 25);
