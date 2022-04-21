@@ -10,7 +10,7 @@ const getAPIData = async (url) => {
   }
 };
 //defining elements and class for document
-const pokeHeader = document.querySelector("header");
+const pokeNav = document.querySelector("nav");
 const pokeGrid = document.querySelector(".pokegrid");
 class Pokemon {
   constructor(name, height, weight, abilities, types) {
@@ -25,7 +25,7 @@ class Pokemon {
 //load pokemon button
 const loadPokemonButton = document.createElement("button");
 loadPokemonButton.textContent = "Load Pokemon";
-pokeHeader.appendChild(loadPokemonButton);
+pokeNav.appendChild(loadPokemonButton);
 loadPokemonButton.addEventListener("click", () => {
   const pokeNumber = prompt("How many pokemon (total) would you like to load?");
   removeChildren(pokeGrid);
@@ -39,7 +39,7 @@ loadPokemonButton.addEventListener("click", () => {
 //new button
 const newButton = document.createElement("button");
 newButton.textContent = "New Pokemon";
-pokeHeader.appendChild(newButton);
+pokeNav.appendChild(newButton);
 newButton.addEventListener("click", () => {
   const pokeName = prompt("What is the name of your new Pokemon?");
   const pokeHeight = prompt("What is the Pokemon's height?");
@@ -158,11 +158,9 @@ function populateCardBack(pokemon) {
   });
   pokeBack.appendChild(typeList);
   //height and weight
-
   const heightLabel = document.createElement("h5");
   heightLabel.textContent = `Height:${pokemon.height}`;
   pokeBack.appendChild(heightLabel);
-
   const weightLabel = document.createElement("h5");
   weightLabel.textContent = `Weight:${pokemon.weight}`;
   pokeBack.appendChild(weightLabel);

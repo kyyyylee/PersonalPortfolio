@@ -4,16 +4,25 @@
     font-family: 'RocknRoll One', sans-serif;
   }
   header{
-    display: flex;
-    justify-content: center;
-    padding: 3rem;
-    margin-bottom: 1rem;
+    height: 10vw;
     background-color: lightcoral;
-  }
-  button{
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .logo{
+    max-width: 25vw;
+  }
+  nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: fit-content;
+    background-color: #3264B0;
+  }
+  button{
+    margin: 1rem;
   }
   .pokegrid {
     display: flex;
@@ -51,6 +60,9 @@
     padding: 1rem;
     background: lightcoral;
     transform: rotateY(180deg);
+  }
+  h5{
+    padding-top: 0.5rem;
   }
   figure img {
     width: 200px;
