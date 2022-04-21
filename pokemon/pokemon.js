@@ -72,6 +72,9 @@ function makeTypesArray(spacedString) {
     return { type: { name: typeName } };
   });
 }
+
+const loadedPokemon = []
+
 async function loadPokemon(offset = 0, limit = 25) {
   const data = await getAPIData(
     `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`
@@ -87,6 +90,7 @@ async function loadPokemon(offset = 0, limit = 25) {
       types: singlePokemon.types,
       moves: singlePokemon.moves.slice(0, 3),
     };
+    loadedPokemon.push(simplePokemon)
     populatePokeCard(simplePokemon);
   }
 }
@@ -231,4 +235,18 @@ function getPokeTypeColor(pokeType) {
   }
   return color;
 }
-await loadPokemon(0, 25);
+
+//working on filter button
+const filterButton = document.createElement("button");
+filterButton.textContent = "Filter Pokemon";
+pokeNav.appendChild(filterButton);
+filterButton.addEventListener("click", () => {
+  const pokeTypeFilter = prompt("What is the name of your new Pokemon?");
+  const filterSelection = loadedPokemon.filter((pokemon) => pokemon.types[0].type.name === pokeTypeFilter)
+  console.log(filterSelection)
+});
+
+
+
+await loadPokemon(0, 50)
+
