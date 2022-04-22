@@ -83,6 +83,7 @@
     text-align: center;
     text-transform: capitalize;
     background-color: whitesmoke;
+    border-radius: 0 0 0.3rem 0.3rem;
   }
   .back {
     padding: 1rem;
