@@ -15,12 +15,25 @@
   </head>
   <body>
     <header>
-      <figure>
-        <img class = 'logo' src="../images/pokemonlogo.png" />
-      </figure>
+      <div class="logo">
+        <img
+          src="../images/pokemonlogo.png"
+          alt="pokemon logo"
+          width="450"
+          height="166"
+        />
+      </div>
+      <div class="welcomeText">
+        <h3>Welcome to my Pokemon Cards Website!</h3>
+        <p>Click any card to reveal it's back side!</p>
+        <p>
+          The navigation panel allows you to sort the cards by their Pokemon
+          type, load more Pokemon cards, and even create your own Pokemon card!
+        </p>
+      </div>
     </header>
     <nav>
-      <select class='type-selector'>
+      <select class="type-selector">
         <option>Sort by type</option>
         <option>grass</option>
         <option>fire</option>
@@ -39,7 +52,7 @@
         <option>ice</option>
         <option>dragon</option>
         <option>fairy</option>
-    </select>
+      </select>
     </nav>
     <main>
       <div class="pokegrid"></div>
