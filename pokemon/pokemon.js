@@ -23,20 +23,18 @@ class Pokemon {
       (this.types = types);
   }
 }
-/* //load pokemon button
-const loadPokemonButton = document.createElement("button");
-loadPokemonButton.textContent = "Load Pokemon";
-pokeNav.appendChild(loadPokemonButton);
-loadPokemonButton.addEventListener("click", () => {
-  const pokeNumber = prompt("How many pokemon (total) would you like to load?");
-  removeChildren(pokeGrid);
-  if (pokeNumber === null) {
-    //if they dont answer the promt just load with default (25) pokemons
-    loadPokemon(0, 25);
-  } else {
-    loadPokemon(0, pokeNumber);
-  }
-}); */
+
+//more button 
+const loadMorePokemonButton = document.createElement('button')
+loadMorePokemonButton.textContent = 'Load More'
+pokeNav.appendChild(loadMorePokemonButton)
+loadMorePokemonButton.addEventListener('click', () => {
+  let limit = prompt("How many pokemon cards would you like to load?")
+  let offset = prompt("Which number pokemon card would you like to start at?")
+  removeChildren(pokeGrid)
+  loadPokemon(offset,limit)
+})
+
 //new button
 const newButton = document.createElement("button");
 newButton.textContent = "New Pokemon";
@@ -117,7 +115,6 @@ function populateCardFront(pokemon) {
   //basing color on pokemon type
   const pokeType = pokemon.types[0].type.name
   const pokeType2 = pokemon.types[1]?.type.name
-     console.log(pokeType, pokeType2)
   pokeFront.style.setProperty('background', getPokeTypeColor(pokeType))
   if(pokeType2) {
       pokeFront.style.setProperty('background', `linear-gradient(${getPokeTypeColor(pokeType)}, ${getPokeTypeColor(pokeType2)})`)
@@ -246,6 +243,7 @@ function getPokeTypeColor(pokeType) {
   return color;
 }
 
+//filter function
 function filterPokemonByType(type) {
   return loadedPokemon.filter((pokemon) => {
     if(pokemon.types[0].type.name === type) return pokemon
@@ -255,11 +253,13 @@ function filterPokemonByType(type) {
   })
 }
 
-await loadPokemon(0, 150)
-
+//filter button/selector
 const selectType = document.querySelector('.type-selector');
 selectType.addEventListener('change', (event) => {
 const filteredByType = filterPokemonByType(event.target.value)
 removeChildren(pokeGrid) 
 filteredByType.forEach(pokemon => populatePokeCard(pokemon))
 })
+
+//loads on page start up
+await loadPokemon(0, 50)

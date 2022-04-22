@@ -4,14 +4,19 @@
     font-family: 'RocknRoll One', sans-serif;
   }
   header{
-    height: 10vw;
+    height: fit-content;
     background-color: lightpink;
+    text-align: center;
+    padding: 1rem;
+  }
+  .welcomeText{
+    display: inline-block;
+    max-width: 30rem;
+  }
+.logo{
     display: flex;
     justify-content: center;
-    align-items: center;
-  }
-  .logo{
-    max-width: 25vw;
+    padding: 1rem;
   }
   nav{
     display: flex;
@@ -19,10 +24,20 @@
     align-items: center;
     flex-wrap: wrap;
     height: fit-content;
+    padding: 1rem;
     background-color: #3264B0;
   }
-  button{
+  button, select{
     margin: 1rem;
+    background-color: lightsteelblue;
+    border: none;
+    padding: 0.5rem 2rem;
+    font-size: 16px;
+    border: solid #3264B0;
+    border-radius: 4px;
+  }
+  button:hover,select:hover{
+    border: solid #FFCC01;
   }
   main{
     display: flex;
@@ -56,16 +71,26 @@
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
+    border-radius: 0.5rem;
   }
-  .front {
-    background-color: pink;
+.front{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: solid whitesmoke;
+}
+  figcaption{
     text-align: center;
     text-transform: capitalize;
+    background-color: whitesmoke;
   }
   .back {
     padding: 1rem;
     background: lightcoral;
     transform: rotateY(180deg);
+  }
+  ul{
+    list-style-type: none;
   }
   h5{
     padding-top: 0.5rem;
