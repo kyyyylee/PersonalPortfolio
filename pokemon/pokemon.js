@@ -261,5 +261,13 @@ removeChildren(pokeGrid)
 filteredByType.forEach(pokemon => populatePokeCard(pokemon))
 })
 
+
+//making the logo a button to load startup again (after filtering etc.)
+const pokeLogo = document.querySelector('.logo')
+pokeLogo.addEventListener('click',()=>{
+  removeChildren(pokeGrid)
+  loadPokemon(0, 50)
+})
+
 //loads on page start up
 await loadPokemon(0, 50)
