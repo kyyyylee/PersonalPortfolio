@@ -55,6 +55,7 @@ a {
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 1rem;
 }
 #welcome-section h1 {
   font-size: 5rem;
