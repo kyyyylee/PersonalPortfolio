@@ -3,7 +3,11 @@
   background-color: black;
   color: #e89e10;
 }
-header {
+.introText{
+  text-align: center;
+  padding-top: 1rem;
+}
+.filterButtons {
   display: flex;
   justify-content: center;
   padding: 1rem;
@@ -23,16 +27,22 @@ header button:hover {
   background-color: #eb212d;
   transition-duration: 0.4s;
 }
-main {
+main{
+  display: flex;
+  justify-content: center;
+}
+.characterDiv{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  max-width: 80vw;
 }
 figure {
   margin: 0.5rem 1rem;
 }
 figure img {
   height: 20rem;
+  border: solid white;
   border-radius: 0.5rem;
 }
 figcaption {
