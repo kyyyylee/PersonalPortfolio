@@ -23,7 +23,7 @@ function populateDom(members) {
     if(member.party=="R"){
       memberFigure.style.setProperty('color', 'darkred')
     }else{
-      memberFigure.style.setProperty('color', '#191C2F')
+      memberFigure.style.setProperty('color', 'darkblue')
     }
     memberFigure.appendChild(memberImg)
     memberFigure.appendChild(memberCaption)

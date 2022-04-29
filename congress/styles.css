@@ -1,4 +1,5 @@
 *{
+    font-family: 'Libre Bodoni', serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -58,6 +59,7 @@ figure{
     background-color: #EBE0CE;
 }
 figcaption{
+    font-weight: 700;
     text-align: center;
     max-width: 10rem ;
     padding: 0.5rem;
