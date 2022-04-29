@@ -56,8 +56,7 @@ senButton.addEventListener("click",function () {
   populateDom(simplifiedMembers(senators))
 });
 senButton.addEventListener("click",function () {
-  const mostSeniorMember = simplifiedMembers(senators).reduce((acc, member) => acc.seniority > member.seniority ? acc : member)
-  congressHog.textContent=`The most senior senator is ${mostSeniorMember.name} who has been enjoying our tax dollars for ${mostSeniorMember.seniority} years!`
+  congressHog.textContent=`The most senior senator is ${mostSeniorMember(senators).name} who has been enjoying our tax dollars for ${mostSeniorMember(senators).seniority} years!`
 });
 buttonSection.appendChild(senButton);
 
@@ -68,8 +67,7 @@ repButton.addEventListener("click", function () {
   populateDom(simplifiedMembers(representatives))
 });
 repButton.addEventListener("click", function () {
-  const mostSeniorMember = simplifiedMembers(representatives).reduce((acc, member) => acc.seniority > member.seniority ? acc : member)
-  congressHog.textContent=`The most senior representative is ${mostSeniorMember.name} who has been enjoying our tax dollars for ${mostSeniorMember.seniority} years!`
+  congressHog.textContent=`The most senior representative is ${mostSeniorMember(representatives).name} who has been enjoying our tax dollars for ${mostSeniorMember(representatives).seniority} years!`
 });
 buttonSection.appendChild(repButton);
 
@@ -88,6 +86,11 @@ democratButton.addEventListener("click", () => populateDom(simplifiedMembers(dem
 democratButton.addEventListener("click", () => congressHog.textContent = `There are ${simplifiedMembers(democraticMembers).length} Democratic members in Congress`);
 buttonSection.appendChild(democratButton);
 
-//all members loaded when page opens */
+//reduce function
+function mostSeniorMember(members){
+  return simplifiedMembers(members).reduce((acc, member) => acc.seniority > member.seniority ? acc : member)
+}
+//all members loaded when page opens 
+congressHog.textContent=`There are ${simplifiedMembers(allMembers).length} members in Congress. The most senior member of Congress is ${mostSeniorMember(allMembers).name} who has been enjoying our tax dollars for ${mostSeniorMember(allMembers).seniority} years!`
 populateDom(simplifiedMembers(allMembers))
 
