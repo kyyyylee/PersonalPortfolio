@@ -23,13 +23,14 @@ function populateDom(members) {
     if(member.party=="R"){
       memberFigure.style.setProperty('color', 'darkred')
     }else{
-      memberFigure.style.setProperty('color', 'darkblue')
+      memberFigure.style.setProperty('color', '#191C2F')
     }
     memberFigure.appendChild(memberImg)
     memberFigure.appendChild(memberCaption)
     congressDiv.appendChild(memberFigure)
   })
 }
+
 //MAP FUNCTION simple array
 function simplifiedMembers(members) {
   return members.map(member => {
@@ -47,36 +48,46 @@ function simplifiedMembers(members) {
     }
   })
 }
+
 //senator button
 const senButton = document.createElement("button");
 senButton.textContent = "Senators";
 senButton.addEventListener("click",function () {
   populateDom(simplifiedMembers(senators))
 });
+senButton.addEventListener("click",function () {
+  const mostSeniorMember = simplifiedMembers(senators).reduce((acc, member) => acc.seniority > member.seniority ? acc : member)
+  congressHog.textContent=`The most senior senator is ${mostSeniorMember.name} who has been enjoying our tax dollars for ${mostSeniorMember.seniority} years!`
+});
 buttonSection.appendChild(senButton);
+
 //representatives button
 const repButton = document.createElement("button");
 repButton.textContent = "Representatives";
 repButton.addEventListener("click", function () {
   populateDom(simplifiedMembers(representatives))
 });
+repButton.addEventListener("click", function () {
+  const mostSeniorMember = simplifiedMembers(representatives).reduce((acc, member) => acc.seniority > member.seniority ? acc : member)
+  congressHog.textContent=`The most senior representative is ${mostSeniorMember.name} who has been enjoying our tax dollars for ${mostSeniorMember.seniority} years!`
+});
 buttonSection.appendChild(repButton);
+
 //FILTER FUNCTION republican button
 const republicanMembers = allMembers.filter((republican) => republican.party == "R");
 const republicanButton = document.createElement("button");
 republicanButton.textContent = "Republican Members";
 republicanButton.addEventListener("click", () => populateDom(simplifiedMembers(republicanMembers)));
+republicanButton.addEventListener("click", () => congressHog.textContent = `There are ${simplifiedMembers(republicanMembers).length} Republican members in Congress`);
 buttonSection.appendChild(republicanButton);
 //FILTER FUNCTION democrat button
 const democraticMembers = allMembers.filter((democrat) => democrat.party == "D");
 const democratButton = document.createElement("button");
 democratButton.textContent = "Democrat Members";
 democratButton.addEventListener("click", () => populateDom(simplifiedMembers(democraticMembers)));
+democratButton.addEventListener("click", () => congressHog.textContent = `There are ${simplifiedMembers(democraticMembers).length} Democratic members in Congress`);
 buttonSection.appendChild(democratButton);
-//REDUCE FUNCTION most senior member
-const mostSeniorMember = simplifiedMembers(allMembers).reduce((acc, member) => acc.seniority > member.seniority ? acc : member)
-console.log(mostSeniorMember.name)
-congressHog.textContent=`The most senior member of congress is ${mostSeniorMember.name} who has been enjoying our tax dollars for ${mostSeniorMember.seniority} years!`
-//all members loaded when page opens
+
+//all members loaded when page opens */
 populateDom(simplifiedMembers(allMembers))
 

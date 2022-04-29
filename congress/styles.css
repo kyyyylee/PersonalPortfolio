@@ -39,15 +39,18 @@ header button {
 main{
     background-color: #191C2F;
     color: #EBE0CE;
+    display: flex;
+    justify-content: center;
 }
 main div{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     padding-top: 1rem;
+    max-width: 80vw;
 }
 img{
-    max-width: 15rem;
+    max-width: 10rem;
 }
 figure{
     border: solid #EBE0CE;
@@ -56,7 +59,7 @@ figure{
 }
 figcaption{
     text-align: center;
-    max-width: 15rem ;
+    max-width: 10rem ;
     padding: 0.5rem;
 }
 footer{
