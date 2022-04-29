@@ -13,6 +13,9 @@
     display: inline-block;
     max-width: 30rem;
   }
+  h3{
+    padding-bottom: 1rem;
+  }
 .logo{
     display: flex;
     justify-content: center;
