@@ -1,7 +1,6 @@
 import { starships } from "../data/starships.js";
 import { removeChildren, getLastNumber } from "../utils/index.js";
 
-const nav = document.querySelector(".nav");
 const navList = document.querySelector(".navList");
 const shipViewer = document.querySelector(".shipViewer");
 const shipMessage = document.querySelector(".modal p");
@@ -24,7 +23,6 @@ window.onclick = function (event) {
 function populateNav() {
   starships.forEach((starship) => {
     const listItem = document.createElement("li");
-
     const anchor = document.createElement("a");
     anchor.href = "#!";
     anchor.textContent = starship.name;
@@ -40,17 +38,24 @@ populateNav();
 
 function populateShipView(shipData) {
   removeChildren(shipViewer);
-  
+  const shipFigure = document.createElement("figure")
   const shipImage = document.createElement("img");
   let shipNum = getLastNumber(shipData.url);
   shipImage.src = `https://starwars-visualguide.com/assets/img/starships/${shipNum}.jpg`;
+  let shipCaption = document.createElement("figcaption")
+  shipCaption.textContent = shipData.name
+
+  shipFigure.appendChild(shipImage)
+  shipFigure.appendChild(shipCaption)
+
   shipImage.addEventListener("error", () => {
     console.log("Image error!!!!!!");
     shipImage.hidden = true;
     shipMessage.textContent = `The ship known as ${shipData.name} is currently in space port for repairs.`;
     // When the user clicks the button, open the modal
     modal.style.display = "block";
+    shipCaption.textContent = ""
   });
 
-  shipViewer.appendChild(shipImage);
+  shipViewer.appendChild(shipFigure);
 }

@@ -38,11 +38,17 @@ li:hover {
 }
 .shipDiv {
   position: fixed;
-  top: 25%;
+  top: 20%;
   left: 40%;
+}
+figcaption{
+  padding: 1rem;
+  color: white;
+  text-align: center;
 }
 img {
   max-width: 40vw;
+  box-shadow: 0 10px 20px rgba(232, 158, 16, 0.19), 0 6px 6px rgba(232, 158, 16, 0.23);  border-radius: 3rem;
 }
 .modal {
   display: none; /* Hidden by default */
