@@ -20,6 +20,11 @@ function populateDom(members) {
     memberImg.src = member.imgURL
     memberCaption.textContent = member.name
 
+    if(member.party=="R"){
+      memberFigure.style.setProperty('color', 'darkred')
+    }else{
+      memberFigure.style.setProperty('color', 'darkblue')
+    }
     memberFigure.appendChild(memberImg)
     memberFigure.appendChild(memberCaption)
     congressDiv.appendChild(memberFigure)
@@ -74,3 +79,4 @@ console.log(mostSeniorMember.name)
 congressHog.textContent=`The most senior member of congress is ${mostSeniorMember.name} who has been enjoying our tax dollars for ${mostSeniorMember.seniority} years!`
 //all members loaded when page opens
 populateDom(simplifiedMembers(allMembers))
+

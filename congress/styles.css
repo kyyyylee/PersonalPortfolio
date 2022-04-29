@@ -37,29 +37,27 @@ header button {
     transition-duration: 0.4s;
   }
 main{
-    background-color:  #191C2F;
+    background-color: #191C2F;
     color: #EBE0CE;
-
-}
-.scene{
-    background-color: orange;
 }
 main div{
-    height: fit-content;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-top: 1rem;
 }
 img{
-    max-width: 10rem;
+    max-width: 15rem;
 }
 figure{
-    padding: 0.5rem;
+    border: solid #EBE0CE;
+    margin: 1rem;
+    background-color: #EBE0CE;
 }
 figcaption{
     text-align: center;
-    font-size: small;
-    max-width: 10rem ;
+    max-width: 15rem ;
+    padding: 0.5rem;
 }
 footer{
     background-color: #72260F;
