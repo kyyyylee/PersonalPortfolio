@@ -11,7 +11,7 @@ const getAPIData = async (url) => {
 };
 
 //defining elements and class for document
-const pokeNav = document.querySelector("nav");
+const pokeButtons = document.querySelector(".buttons")
 const pokeGrid = document.querySelector(".pokegrid");
 class Pokemon {
   constructor(name, height, weight, abilities, types) {
@@ -24,21 +24,23 @@ class Pokemon {
   }
 }
 
-//more button 
-const loadMorePokemonButton = document.createElement('button')
-loadMorePokemonButton.textContent = 'Load More'
-pokeNav.appendChild(loadMorePokemonButton)
-loadMorePokemonButton.addEventListener('click', () => {
-  let limit = prompt("How many pokemon cards would you like to load?")
-  let offset = prompt("Which number pokemon card would you like to start at?")
+//load button 
+const loadButton = document.createElement('button')
+loadButton.textContent = 'Load Pokemon'
+pokeButtons.appendChild(loadButton)
+loadButton.addEventListener('click', async () => {
   removeChildren(pokeGrid)
-  loadPokemon(offset,limit)
+  if( loadedPokemon.length === 0) {
+    await loadPokemon(0, 50)
+  } else {
+    loadedPokemon.forEach((item) => populatePokeCard(item))
+  }
 })
 
 //new button
 const newButton = document.createElement("button");
 newButton.textContent = "New Pokemon";
-pokeNav.appendChild(newButton);
+pokeButtons.appendChild(newButton);
 newButton.addEventListener("click", () => {
   const pokeName = prompt("What is the name of your new Pokemon?");
   const pokeHeight = prompt("What is the Pokemon's height?");
@@ -246,19 +248,20 @@ function getPokeTypeColor(pokeType) {
 //filter function
 function filterPokemonByType(type) {
   return loadedPokemon.filter((pokemon) => {
-    if(pokemon.types[0].type.name === type) return pokemon
+    if(pokemon.types[0].type.name === type) {
+      return pokemon
+    }
     if((pokemon.types[1]?.type.name) && (pokemon.types[1].type.name === type)) {
       return pokemon
     } 
   })
 }
-
-//filter button/selector
-const selectType = document.querySelector('.type-selector');
-selectType.addEventListener('change', (event) => {
-const filteredByType = filterPokemonByType(event.target.value)
-removeChildren(pokeGrid) 
-filteredByType.forEach(pokemon => populatePokeCard(pokemon))
+const typeSelect = document.querySelector('.type-selector')
+typeSelect.addEventListener('change', (event) => {
+  const usersTypeChoice = event.target.value.toLowerCase()
+  const pokemonByType = filterPokemonByType(usersTypeChoice)
+  removeChildren(pokeGrid)
+  pokemonByType.forEach((singlePokemon) => populatePokeCard(singlePokemon))
 })
 
 

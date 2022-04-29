@@ -53,6 +53,7 @@
     flex-wrap: wrap;
     justify-content: center;
     max-width: 80vw;
+    min-height: 100vh;
   }
   .scene {
     width: 200px;
